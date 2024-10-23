@@ -138,6 +138,47 @@ margin-bottom:50px;
     
 </form>       
 </center>
+
+      <script>
+
+        const form = document.getElementById('form');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const errorMessages = document.getElementById("errorMessages");
+
+            const fname = document.getElementById('fname');
+            const lname = document.getElementById('lname');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            //name
+            if (fname.value == '' || lname.value == '') {
+                errorMessages.innerHTML = " name and last name are required.";
+            }
+            var namePattern = /^[a-zA-Z\s-]+$/;
+            // if (!namePattern.test(fname) || !namePattern.test(lname)) {
+            //     errorMessages.innerHTML = "Invalid first name or last name.";
+            // }
+            //email
+
+            const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!pattern.test(email)) {
+                errorMessages.innerHTML = "Invalid gmail";
+            }
+            //phone
+            var phoneNum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+            if (!phone.value.test(phoneNum)) {
+                errorMessages.innerHTML = "Invalid phone";
+            }
+
+            else {
+                alert('form submitted');
+                form.submit();
+            }
+        });
+
+
+    </script>
 </body>
 </html>
 
