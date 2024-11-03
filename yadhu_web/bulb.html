@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Bulb Animation</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #333333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh; /* Fill the full height */
+            padding: 40px;
+        }
+
+        .box {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: grid;
+            place-items: center;
+        }
+
+        .box img {
+            height: 400px;
+            width: auto; /* Maintain aspect ratio */
+        }
+
+        #switch_btn {
+            display: flex; /* Use flexbox for buttons alignment */
+            gap: 10px; /* Space between buttons */
+            margin-top: 20px; /* Add space above buttons */
+        }
+
+        .button {
+            background-color: #fff;
+            border: 2px solid #000;
+            color: #000;
+            cursor: pointer;
+            font-family: Inter, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            height: 48px;
+            min-width: 140px;
+            padding: 0 17px;
+            transition: all 0.3s;
+            user-select: none;
+            outline: none;
+        }
+
+        .button:focus {
+            outline: none; /* Remove default focus outline */
+        }
+
+        .button.on {
+            border-color: green;
+            color: green;
+        }
+
+        .button.off {
+            border-color: red;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img id="img" src="https://i.ibb.co/C1S9Vwn/bulb-off.jpg" alt="Light Bulb">
+        <div id="switch_btn">
+            <button class="button" id="onbtn">Switch on</button>
+            <button class="button" id="offbtn">Switch off</button>
+        </div>
+    </div>
+
+    <script>
+        const img = document.getElementById("img");
+        const onbtn = document.getElementById("onbtn");
+        const offbtn = document.getElementById("offbtn");
+
+        // Function to update button states
+        function updateButtonStates(isOn) {
+            if (isOn) {
+                img.src = "https://i.ibb.co/SXmm4cd/bulb-on.jpg";
+                onbtn.classList.add('on');
+                offbtn.classList.remove('off');
+            } else {
+                img.src = "https://i.ibb.co/C1S9Vwn/bulb-off.jpg";
+                onbtn.classList.remove('on');
+                offbtn.classList.add('off');
+            }
+        }
+
+        onbtn.addEventListener('click', () => updateButtonStates(true));
+        offbtn.addEventListener('click', () => updateButtonStates(false));
+    </script>
+</body>
+
+</html>
