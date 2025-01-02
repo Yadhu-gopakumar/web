@@ -1,3 +1,12 @@
+//dbname=todo_app
+// CREATE TABLE tasks (
+//     id INT AUTO_INCREMENT PRIMARY KEY,
+//     task_name VARCHAR(255) NOT NULL,
+//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+//     status ENUM('pending', 'completed') DEFAULT 'pending'
+// );
+
+
 <?php
 // Database connection
 $server = 'localhost';
